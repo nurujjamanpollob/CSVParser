@@ -1,4 +1,4 @@
-package dev.nurujjamanpollob.collection.csvparser.datastore;
+package dev.nurujjamanpollob.collection.csvparser.iterables;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
@@ -231,6 +231,28 @@ public final class CSVToIterableObject {
     public List<String> getAllValuesByKey(String key) throws CSVIterableObjectError {
         // First get the index of the key
         int keyIndex = getKeyIndex(key);
+        // Then get all values by the key index
+        List<String> values = new ArrayList<>();
+        for (String[] row : keyValueRows) {
+            values.add(row[keyIndex]);
+        }
+
+        return values;
+    }
+
+    /**
+     * Method to get all value associated with a key, by its index number
+     * @param keyIndex the key index number
+     * @throws CSVIterableObjectError if the keyIndex is out of bound
+     */
+    public List<String> getAllValuesByKey(int keyIndex) throws CSVIterableObjectError {
+
+        // check for key index
+        if(keyIndex >= keySet.length){
+
+            throw new CSVIterableObjectError("The key index is out of bound. The index is " + keyIndex + " and the key-set length is " + keySet.length);
+        }
+
         // Then get all values by the key index
         List<String> values = new ArrayList<>();
         for (String[] row : keyValueRows) {

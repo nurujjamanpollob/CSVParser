@@ -1,15 +1,9 @@
 package dev.nurujjamanpollob.collection.csvparser;
 
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
-import dev.nurujjamanpollob.collection.csvparser.datastore.CSVToIterableObject;
+import dev.nurujjamanpollob.collection.csvparser.iterables.CSVToIterableObject;
 import dev.nurujjamanpollob.collection.csvparser.exception.CSVIterableObjectError;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws CSVIterableObjectError {

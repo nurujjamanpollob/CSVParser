@@ -1,6 +1,6 @@
 package dev.nurujjamanpollob.collection.csvparser.extras;
 
-import dev.nurujjamanpollob.collection.csvparser.datastore.CSVToIterableObject;
+import dev.nurujjamanpollob.collection.csvparser.iterables.CSVToIterableObject;
 
 /**
  * @author nurujjamanpollob
