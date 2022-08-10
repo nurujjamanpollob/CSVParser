@@ -294,6 +294,34 @@ public final class CSVToIterableObject {
         return keyValueRows.size() + 1;
     }
 
+    /**
+     * Method to check If a specific key is present in the key-set
+     * @param key the key of name to look for
+     * @return true if the key is present in the key-set, false otherwise
+     */
+    public boolean isKeyPresent(String key) {
+        for (String k : keySet) {
+            if (k.equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Method to check If a specific set of keys is present in the key-set
+     * @param keys the set of keys to look for
+     * @return true if all keys are present in the key-set, false otherwise
+     */
+    public boolean isKeysPresent(String[] keys) {
+        for (String k : keys) {
+            if (!isKeyPresent(k)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     @Override
     public String toString() {
@@ -302,4 +330,6 @@ public final class CSVToIterableObject {
                 ", keySet=" + Arrays.toString(keySet) +
                 '}';
     }
+
+
 }

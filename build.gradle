@@ -21,3 +21,17 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+// Define fat jar task with all dependencies
+task fatJar(type: Jar) {
+
+    classifier = 'all'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    exclude "META-INF/LICENSE.txt"
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    with jar
+}
