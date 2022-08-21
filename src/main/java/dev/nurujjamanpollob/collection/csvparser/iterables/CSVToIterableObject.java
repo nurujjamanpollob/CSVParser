@@ -115,11 +115,9 @@ public final class CSVToIterableObject {
     }
 
     /**
-     * Suppress default constructor for non-instantiability.
+     * Empty constructor that initializes the new instance of {@link CSVToIterableObject}.
      */
-    private CSVToIterableObject() throws CSVIterableObjectError {
-        throw new CSVIterableObjectError("This class can't be instantiated without parameters.");
-    }
+    public CSVToIterableObject() {}
 
     /**
      * Method to put a row of the CSV file into the {@link CSVToIterableObject}
