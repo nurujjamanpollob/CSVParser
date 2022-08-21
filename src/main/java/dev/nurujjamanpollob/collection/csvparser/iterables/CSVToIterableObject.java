@@ -8,9 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author nurujjamanpollob
@@ -321,6 +319,36 @@ public final class CSVToIterableObject {
     }
 
 
+    /**
+     * Method to Convert the CSV Key-Value Iterable Object to a Map
+     * @param index the index of the value row
+     * @return a map of the key-value pairs
+     * @throws CSVIterableObjectError if the index is out of bound
+     */
+    public Map<String, String> toMap(int index) throws CSVIterableObjectError {
+        if (index >= keyValueRows.size()) {
+            throw new CSVIterableObjectError("The index is out of bound, the index is " + index + " and the row length is " + keyValueRows.size());
+        }
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < keySet.length; i++) {
+            map.put(keySet[i], keyValueRows.get(index)[i]);
+        }
+        return map;
+    }
+
+    /**
+     * Method to Convert the CSV Key-Value Iterable Object to a list of maps
+     * @return a list of maps of the key-value pairs
+     */
+    public List<Map<String, String>> toMapList() throws CSVIterableObjectError {
+        List<Map<String, String>> mapList = new ArrayList<>();
+        for (int i = 0; i < keyValueRows.size(); i++) {
+            mapList.add(toMap(i));
+        }
+        return mapList;
+    }
+
+
     @Override
     public String toString() {
         return "CSVToIterableObject{" +
@@ -328,6 +356,9 @@ public final class CSVToIterableObject {
                 ", keySet=" + Arrays.toString(keySet) +
                 '}';
     }
+
+
+
 
 
 }
