@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'java-library'
 }
 
 group 'dev.nurujjamanpollob.collection.csvparser'
@@ -7,6 +8,13 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+// Supported for Android
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 dependencies {
